@@ -1,0 +1,24 @@
+# ----------------------------------------------------------------------------
+# Aurora Nexus Internship Portal – Apache .htaccess
+# ----------------------------------------------------------------------------
+
+# 1) Disable directory listings everywhere
+Options -Indexes
+
+# 2) Turn on URL rewriting
+RewriteEngine On
+
+# 3) Prevent directory‐indexing of .git while still allowing object fetches
+<IfModule mod_autoindex.c>
+  IndexIgnore *
+</IfModule>
+
+# 4) Custom 404 for /admin
+#    Any request to “/admin” or “/admin/” serves 404.php
+RewriteRule ^admin/?$ 404.php [L]
+
+# 5) All other “missing” URLs → index.php (front-controller style)
+#    If the requested path isn’t a real file or directory, load index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]

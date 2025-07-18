@@ -1,0 +1,13 @@
+/* Custom styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+header {
+  background-color: #0066cc;
+  color: #fff;
+  padding: 2rem 0;
+}
+footer {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+}
